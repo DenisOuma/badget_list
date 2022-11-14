@@ -1,13 +1,16 @@
 import React from "react";
 import "../styles/ExpenseItem.css";
+import ExpenseDate from "./Expenses/ExpenseDate";
 
-function ExpenseItem() {
+function ExpenseItem({ data }) {
+	console.log("Hello Working =>", typeof data.date);
+
 	return (
 		<div className="expense-item">
-			<div className="">March 28th 2021</div>
+			<ExpenseDate date={data.date} />
 			<div className="expense-item__description">
-				<h2>Car Insuarance</h2>
-				<div className="expense-item__price">$567.67</div>
+				<h2>{data.title}</h2>
+				<div className="expense-item__price">${data.cost}</div>
 			</div>
 		</div>
 	);
