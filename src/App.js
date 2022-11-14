@@ -1,5 +1,7 @@
 import "./App.css";
 import ExpenseItem from "./components/ExpenseItem";
+import Card from "./components/Expenses/Card";
+import "./styles/Expenses.css";
 
 function App() {
 	const expenseData = [
@@ -36,9 +38,11 @@ function App() {
 	];
 	return (
 		<div className="App">
-			{expenseData.map((expence) => (
-				<ExpenseItem key={expence.id} data={expence} />
-			))}
+			<Card className="expenses">
+				{expenseData.map((expence) => (
+					<ExpenseItem key={expence.id} data={expence} />
+				))}
+			</Card>
 		</div>
 	);
 }
