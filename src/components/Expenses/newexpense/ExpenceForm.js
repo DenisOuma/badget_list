@@ -1,8 +1,7 @@
-import userEvent from "@testing-library/user-event";
 import React from "react";
 import "../../../styles/NewExpense.css";
 
-function ExpenceForm() {
+function ExpenceForm(props) {
 	const [data, setData] = React.useState({
 		title: "",
 		date: "",
@@ -20,26 +19,43 @@ function ExpenceForm() {
 			date: data.date,
 			amount: data.amount,
 		};
-		console.log(expense);
+		props.getExpense(expense);
+		setData({
+			title: "",
+			date: "",
+			amount: "",
+		});
 	};
 	return (
 		<form onSubmit={handleSubmit}>
 			<div className="new-expense__controls">
 				<div className="new-expense__control">
 					<label>Title</label>
-					<input type="text" name="title" onChange={handleChange} />
+					<input
+						type="text"
+						name="title"
+						onChange={handleChange}
+						value={data.title}
+					/>
 				</div>
 				<div className="new-expense__control">
 					<label>Amount</label>
-					<input type="number" name="amount" onChange={handleChange} />
+					<input
+						type="number"
+						name="amount"
+						step="10"
+						value={data.amount}
+						onChange={handleChange}
+					/>
 				</div>
 				<div className="new-expense__control">
 					<label>Date</label>
 					<input
-						type="Date"
-						min="2019-4-24"
-						step="10"
+						type="date"
+						min="2019-01-01"
+						max="2090-01-01"
 						name="date"
+						value={data.date}
 						onChange={handleChange}
 					/>
 				</div>

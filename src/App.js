@@ -12,35 +12,15 @@ function App() {
 			date: new Date(2023, 8, 24),
 			cost: 6000,
 		},
-		{
-			id: 2,
-			title: "My House",
-			date: new Date(2024, 3, 14),
-			cost: 8000,
-		},
-		{
-			id: 3,
-			title: "My Range Rover Sports",
-			date: new Date(2024, 1, 16),
-			cost: 3000,
-		},
-		{
-			id: 4,
-			title: "Maureen Range Rover",
-			date: new Date(2024, 2, 13),
-			cost: 4000,
-		},
-		{
-			id: 5,
-			title: "Wifes Kazibo",
-			date: new Date(2023, 3, 11),
-			cost: 3000,
-		},
 	];
+
+	const getExpense = (data = "empty") => {
+		console.log("The data Is Found Here ===>", data);
+	};
 	return (
 		<div className="App">
 			<Card className="expenses">
-				<NewExpense />
+				<NewExpense getExpense={getExpense} />
 				{expenseData.map((expence) => (
 					<ExpenseItem key={expence.id} data={expence} />
 				))}
