@@ -37,7 +37,7 @@
 	background-color: #ddb3f8;
 }
 .new-expense__controls {
-	display: flex;
+	display: flex !important;
 	flex-wrap: wrap;
 	gap: 1rem;
 	margin-bottom: 1rem;
