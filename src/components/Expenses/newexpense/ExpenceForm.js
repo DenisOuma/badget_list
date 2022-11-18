@@ -16,7 +16,7 @@ function ExpenceForm(props) {
 		e.preventDefault();
 		const expense = {
 			title: data.title,
-			date: data.date,
+			date: new Date(data.date),
 			amount: data.amount,
 		};
 		props.getExpense(expense);
